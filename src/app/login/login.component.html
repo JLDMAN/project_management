@@ -1,0 +1,30 @@
+<div class="content text">
+    <div class="imageSpace center">
+        <img src="../../assets/icons/Asset_1.png" class="img_1">
+    </div> 
+    <div class="textSpace">
+        <div class="center bigSpace">
+            <img src="../../assets/icons/Asset_2.png" class="img_2">
+        </div>
+        <div class="center smallSpace">
+            Log into your account
+        </div>
+        <div [formGroup]="loginForm">
+            <div class="center smallSpace">
+                <input type="text" formControlName="username" placeholder="Username">
+            </div>
+            <div class="center smallSpace">
+                <input type="text" formControlName="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="center mediumSpace">
+            <button class="button" (onclick)="login()">Login</button>
+        </div>
+        <div class="center smallSpace">
+            <p>Create account</p>
+        </div>
+        <div class="center bigSpace">
+            <p>Forgot password</p>
+        </div>
+    </div>
+</div>

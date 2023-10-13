@@ -1,0 +1,164 @@
+/* secondary bid screen */
+@media screen and (min-width: 1900px){
+    .content{
+        margin-top: 10%;
+    }
+}
+
+/* laptop screen */
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7%;
+    /* border: red;
+    border-style: solid; */
+    height: 500px;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageSpace{
+    background-color: #FEC21C;
+    border-radius: 20px 0px 0px 20px;
+    height: 100%;
+    width:28.5%;
+}
+
+.img_1{
+    height: 330px;
+}
+
+.textSpace{
+    background-color: #ffffff;
+    border-radius: 0px 20px 20px 0px;
+    height: 100%;
+    width:21.5%;
+}
+
+.img_2{
+    height: 50px;
+}
+
+input[type=text] {
+    width: 60%;
+    /* background-color: #ffffff; */
+    color: #291B57;
+    padding: 14px 0px;
+    margin: 8px 0;
+    border-width: 0px 0px  1px 0px;
+    cursor: pointer;
+}
+
+input[type=text]:hover {
+    background-color: #ffffff;
+    color: #291B57;
+}
+
+.button{
+    padding: 1% 10%;
+    border-radius: 25px;
+    background-color: #291B57;
+    color: #ffffff;
+}
+
+.button:hover{
+    background-color: #868686;
+}
+
+.text{
+    font-family: '\'Roboto\', sans-serif';
+}
+
+.bigSpace{
+    margin: 8% 0;
+}
+
+.mediumSpace{
+    margin: 4% 0;
+}
+
+.smallSpace{
+    margin: 1% 0;
+}
+
+/* half laptop screen */
+@media screen and (max-width: 1200px){
+    .content{
+        margin-top: 15%;
+    }
+
+    .imageSpace{
+        height: 75%;
+    }
+
+    .img_1{
+        height: 200px;
+    }
+
+    .textSpace{
+        height: 75%;
+    }
+    
+    
+    .img_2{
+        height: 20px;
+    }   
+
+}
+
+/* third laptop screen */
+@media screen and (max-width: 750px){
+    .content{
+        margin-top: 15%;
+    }
+
+    .imageSpace{
+        height: 75%;
+    }
+
+    .img_1{
+        height: 180px;
+    }
+
+    .textSpace{
+        height: 75%;
+    }
+    
+    
+    .img_2{
+        height: 20px;
+    }   
+
+}
+
+/* qaurter laptop screen */
+@media screen and (max-width: 650px){
+    .content{
+        margin-top: 15%;
+    }
+
+    .imageSpace{
+        height: 75%;
+        width: 25%;
+    }
+
+    .img_1{
+        height: 100px;
+    }
+
+    .textSpace{
+        height: 75%;
+        width: 25%;
+    }
+    
+    
+    .img_2{
+        height: 20px;
+    }   
+
+}
