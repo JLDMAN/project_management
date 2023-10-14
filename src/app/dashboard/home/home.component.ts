@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  user: string = "worker 1";
+  workerId: string = "worker_1.png";
+
+  date: number = Date.now();
+
+  meetings: boolean = false;
+  numberOfMeetings: number = 0;
+
 }

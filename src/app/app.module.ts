@@ -10,7 +10,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/home/home.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './dashboard/navigation/navigation.component';
+import { HeaderComponent } from './dashboard/header/header.component';
+import { ButtonComponent } from './components/button/button/button.component';
+import { IdCardComponent } from './components/id-card/id-card/id-card.component';
+import { ProjectOverviewComponent } from './components/project-overview/project-overview/project-overview.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { NavigationComponent } from './navigation/navigation.component';
     LoginComponent,
     DashboardComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    HeaderComponent,
+    ButtonComponent,
+    IdCardComponent,
+    ProjectOverviewComponent
   ],
   imports: [
     BrowserModule,

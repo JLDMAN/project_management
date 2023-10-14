@@ -1,7 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: #291B57;
     border: none !important;
     margin: 0px !important;
     padding: 0 !important;
+}
+
+.bigSpaceMargin{
+    margin: 8% 0;
+}
+
+.mediumSpaceMargin{
+    margin: 4% 0;
+}
+
+.smallSpaceMargin{
+    margin: 1% 0;
+}
+
+.bigSpacePadding{
+    margin: 8% 0;
+}
+
+.mediumSpacePadding{
+    margin: 4% 0;
+}
+
+.smallSpacePadding{
+    margin: 1% 0;
+}
+
+.lightText{
+    color: white;
+    font-family: '\'Roboto\', sans-serif';
+}
+
+.darkText{
+    color: #291B57;
+    font-family: '\'Roboto\', sans-serif';
+}
+
+.largeText{
+    font-size: 30px;
+}
+
+.smallText{
+    font-size: 15px;
 }

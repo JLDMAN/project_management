@@ -1,4 +1,29 @@
+<div class="heading">
+    <div class="leftHeading">
+        <div class="">
+            <img class="leftHeadingIcon" src="../../../assets/icons/{{workerId}}">
+        </div>
+        <div class="leftHeadingText largeText">
+            <p class="darkText">Hi <a class="boldText">{{user}}</a></p> 
+        </div>
+    </div> 
+    <div class="rightHeading smallText darkText">
+        <div>
+            <p>{{date | date:'medium'}}  </p>
+        </div>
+        <div *ngIf="meetings">
+            <p>    |   </p>
+        </div>
+        <div *ngIf="meetings">
+            <p>  Meetings to attend today: {{numberOfMeetings}}</p>
+        </div>
+    </div>
+</div>
 <div>
-    <app-navigation></app-navigation>
-    <!-- <router-outlet></router-outlet> -->
+    <div>
+        <app-project-overview></app-project-overview>
+    </div>
+    <div>
+        <app-id-card></app-id-card>
+    </div>
 </div>

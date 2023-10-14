@@ -1,0 +1,45 @@
+.center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.space{
+    margin-top: 5%;
+}
+
+.icon{
+    height: 40px;
+    margin-top: 5%;
+    margin-right: 0%;
+}
+
+.button{
+    width: 150px;
+    color: #291B57;
+    background-color: white;
+
+    border: 0px;
+    border-style: none;
+    border-color: #291B57;
+
+    text-align: left;
+}
+
+.button:hover{
+    border-bottom: 1px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.left{
+    margin-right: 1%;
+    /* border-color: green;
+    border-style: solid; */
+}
+
+.right{
+    margin-left: 1%;
+    /* border-color: blue;
+    border-style: solid; */
+}

@@ -1,0 +1,18 @@
+.flex{
+    display: flex;
+}
+
+.navSpace{
+    width: 15%;
+    padding: 0% 1%;
+    /* border-color: red;
+    border-style: solid; */
+}
+
+.contentSpace{
+    width: 85%;
+    padding: 0% 1%;
+    background-color: rgb(220, 220, 220);
+    /* border-color: blue;
+    border-style: solid; */
+}

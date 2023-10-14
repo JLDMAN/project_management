@@ -1,0 +1,8 @@
+<div>
+    <div *ngFor="let item of names">
+        <app-button [buttonName]="item.buttonName" [iconName]="item.iconName"></app-button>
+    </div>
+    <div class="bottomSpace">
+        <app-button [buttonName]="Logout" [iconName]="Logout"></app-button>
+    </div>
+</div>
