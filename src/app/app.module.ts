@@ -15,6 +15,8 @@ import { HeaderComponent } from './dashboard/header/header.component';
 import { ButtonComponent } from './components/button/button/button.component';
 import { IdCardComponent } from './components/id-card/id-card/id-card.component';
 import { ProjectOverviewComponent } from './components/project-overview/project-overview/project-overview.component';
+// prime ng
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { ProjectOverviewComponent } from './components/project-overview/project-
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

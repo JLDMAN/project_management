@@ -1,1 +1,34 @@
-<p>project-overview works!</p>
+<div class="frame">
+    <div class="card flex justify-content-center dropDownCard">
+        <p-dropdown 
+            placeholder="Briefed ({{countOfBrief}})" 
+            [options]="briefed" 
+            optionLabel="projectName" 
+            [style]="{'width': '100%'}">
+        </p-dropdown>
+    </div>
+    <div class="card flex justify-content-center dropDownCard">
+        <p-dropdown 
+            placeholder="Waiting ({{countOfWaiting}})" 
+            [options]="waiting" 
+            optionLabel="projectName" 
+            [style]="{'width': '100%'}">
+        </p-dropdown>
+    </div>
+    <div class="card flex justify-content-center dropDownCard">
+        <p-dropdown 
+            placeholder="In Progress ({{countOfInProgress}})" 
+            [options]="inProgress" 
+            optionLabel="projectName" 
+            [style]="{'width': '100%'}">
+    </p-dropdown>
+    </div>
+    <div class="card flex justify-content-center dropDownCard">
+        <p-dropdown 
+            placeholder="Done ({{countOfDone}})" 
+            [options]="done" 
+            optionLabel="projectName" 
+            [style]="{'width': '100%'}">
+    </p-dropdown>
+    </div>
+</div>
