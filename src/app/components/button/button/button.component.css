@@ -14,7 +14,7 @@
     margin-right: 0%;
 }
 
-.button{
+button{
     width: 150px;
     color: #291B57;
     background-color: white;
@@ -26,10 +26,11 @@
     text-align: left;
 }
 
-.button:hover{
+button:hover{
     border-bottom: 1px;
     border-style: solid;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .left{

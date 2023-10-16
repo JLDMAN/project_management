@@ -1,0 +1,82 @@
+.container{
+    overflow-x: auto;
+    padding-bottom: 5%;
+}
+
+.flex{
+    display: flex;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-right: 2%;
+    min-width: 300px;
+}
+
+.userIcon{
+    height: 75px;
+}
+
+.marginSpace{
+    margin: 5%;
+}
+
+.boldText{
+    font-weight: bold;
+}
+
+.buttonView{
+    color: white;
+    background-color: rgb(220, 220, 220);
+    padding: 5%;
+    border: none;
+    border-radius: 5px;
+    margin: 5%;
+}
+
+.buttonView:hover{
+    cursor: pointer;
+}
+
+.hover{
+    cursor: pointer;
+}
+
+.yellowButton{
+    background-color: #FEC21C;
+    padding: 5px 10px;
+    margin-right: 5px;
+    color:#291B57;
+    border-radius: 15px 15px 0px 0px;
+    border: none;
+}
+
+.greenButton{
+    background-color: #2BB994;
+    padding: 5px 10px;
+    margin-right: 5px;
+    color:white;
+    border-radius: 15px 15px 0px 0px;
+    border: none;
+}
+
+.navyButton{
+    background-color: #291B57;
+    padding: 5px 10px;
+    margin-right: 5px;
+    color:white;
+    border-radius: 15px 15px 0px 0px;
+    border: none;
+}
+
+.minButtonSize{
+    width: 120px;
+}

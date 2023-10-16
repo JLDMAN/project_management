@@ -17,3 +17,12 @@ export interface Done {
     projectName: string;
     code: string;
 }
+
+export interface teamDetails {
+    userId: any[],
+    userIcon: any[];
+    userNotifications:any[];
+    jobsWaitingToStart: any[];
+    jobsStarted: any[];
+    jobsCompleted: any[];
+}

@@ -17,6 +17,9 @@ import { IdCardComponent } from './components/id-card/id-card/id-card.component'
 import { ProjectOverviewComponent } from './components/project-overview/project-overview/project-overview.component';
 // prime ng
 import { DropdownModule } from 'primeng/dropdown';
+import { ChatComponent } from './dashboard/chat/chat/chat.component';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { DropdownModule } from 'primeng/dropdown';
     HeaderComponent,
     ButtonComponent,
     IdCardComponent,
-    ProjectOverviewComponent
+    ProjectOverviewComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { DropdownModule } from 'primeng/dropdown';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    DropdownModule
+    DropdownModule,
+    ButtonModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

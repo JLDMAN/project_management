@@ -30,3 +30,29 @@
 .boldText{
     font-weight: bold;
 }
+
+.contentPadding{
+    margin: 0% 2%;
+    width: 26%;
+}
+
+.frame{
+    width: 68%;
+    background-color: #291B57;
+    border-radius: 20px;
+    padding: 1%;
+}
+
+.yellowBorder{
+    max-width: 200px;
+    padding: 1%;
+    border-radius: 5px;
+    background-color: #FEC21C;
+    text-align: center;
+    color: white;
+    margin: 1%;
+}
+
+.teamContainer{
+    margin: 1%;
+}

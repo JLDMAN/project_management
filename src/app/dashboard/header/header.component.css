@@ -40,7 +40,7 @@
     height: 40px;
 }
 
-.setting-button{
+.settingButton{
     background-color: #291B57;
     padding: none;
     border: none;
@@ -63,7 +63,7 @@ input[type=text]:hover {
     border-style: solid;
 }
 
-.button{
+button{
     width: 150px;
     color: #ffffff;
     background-color: #291B57;
@@ -72,12 +72,13 @@ input[type=text]:hover {
     border-radius: 10px;
 }
 
-.button:hover{
+button:hover{
     border: 1px;
     padding: 4%;
     border-style: solid;
     font-weight: bold;
     border-color: white;
+    cursor: pointer;
 }
 
 

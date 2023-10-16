@@ -1,3 +1,8 @@
 .dropDownCard{
-    margin: 10% 0%;
+    margin-bottom: 10%;
+}
+
+.frame{
+    min-width: 300px;
+    /* border: 2px solid red; */
 }

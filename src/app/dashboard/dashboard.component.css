@@ -3,15 +3,17 @@
 }
 
 .navSpace{
+    height: 92vh;
     width: 15%;
-    padding: 0% 1%;
+    border-right: 3px solid rgb(201, 198, 198);
+    /* padding: 0% 1%; */
     /* border-color: red;
     border-style: solid; */
 }
 
 .contentSpace{
     width: 85%;
-    padding: 0% 1%;
+    /* padding: 0% 1%; */
     background-color: rgb(220, 220, 220);
     /* border-color: blue;
     border-style: solid; */
