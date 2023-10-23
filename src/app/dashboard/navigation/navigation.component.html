@@ -1,8 +1,10 @@
 <div class="content">
-    <div *ngFor="let item of names">
-        <app-button [buttonName]="item.buttonName" [iconName]="item.iconName"></app-button>
+    <div class="topContainer">
+        <div *ngFor="let item of names" class="buttonSpace">
+            <app-button [buttonName]="item.buttonName" [iconName]="item.iconName"></app-button>
+        </div>
     </div>
-    <div class="bottomSpace">
-        <app-button [buttonName]="Logout" [iconName]="Logout"></app-button>
+    <div class="bottomContainer">
+        <app-button [buttonName]="Logout" [iconName]="logoutIcon"></app-button>
     </div>
 </div>

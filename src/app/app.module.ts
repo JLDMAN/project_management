@@ -15,6 +15,8 @@ import { HeaderComponent } from './dashboard/header/header.component';
 import { ButtonComponent } from './components/button/button/button.component';
 import { IdCardComponent } from './components/id-card/id-card/id-card.component';
 import { ProjectOverviewComponent } from './components/project-overview/project-overview/project-overview.component';
+import { ProjectsComponent } from './dashboard/projects/projects.component';
+import { CalendarComponent } from './dashboard/calendar/calendar.component';
 // prime ng
 import { DropdownModule } from 'primeng/dropdown';
 import { ChatComponent } from './dashboard/chat/chat/chat.component';
@@ -32,7 +34,9 @@ import { DialogModule } from 'primeng/dialog';
     ButtonComponent,
     IdCardComponent,
     ProjectOverviewComponent,
-    ChatComponent
+    ChatComponent,
+    ProjectsComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

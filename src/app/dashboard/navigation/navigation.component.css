@@ -3,8 +3,16 @@
     justify-content: center;
 }
 
-.bottomSpace{
-    margin-top: 20%;
+.bottomContainer{
+    margin-top: 85%;
+}
+
+.topContainer{
+    margin-top: 30%;
+}
+
+.buttonSpace{
+    margin-top: 10%;
 }
 
 .content{

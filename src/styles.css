@@ -31,16 +31,21 @@ body {
 
 .lightText{
     color: white;
-    font-family: '\'Roboto\', sans-serif';
+    font-family: 'Montserrat', sans-serif;
 }
 
 .darkText{
     color: #291B57;
-    font-family: '\'Roboto\', sans-serif';
+    font-family: 'Montserrat', sans-serif;
 }
+
 
 .largeText{
     font-size: 30px;
+}
+
+.mediumText{
+    font-size: 22.5px;
 }
 
 .smallText{

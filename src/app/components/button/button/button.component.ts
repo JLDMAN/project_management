@@ -14,7 +14,6 @@ export class ButtonComponent implements OnInit {
   constructor(
     private router: Router
   ){
-
   }
 
   ngOnInit(): void {
@@ -24,6 +23,5 @@ export class ButtonComponent implements OnInit {
 
   navigate(){
     this.router.navigate(['dashboard/' + this.buttonName.toLowerCase()]);
-    console.log(this.buttonName.toLowerCase());
   }
 }

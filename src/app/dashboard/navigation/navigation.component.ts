@@ -8,17 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
 
   names: any[] = [
-    { buttonName: 'Home', iconName: 'Icon.png' },
-    { buttonName: 'Chat', iconName: 'Icon.png' },
-    { buttonName: 'Projects', iconName: 'Icon.png' },
-    { buttonName: 'Calendar', iconName: 'Icon.png' },
-    { buttonName: 'Dashboard', iconName: 'Icon.png' },
-    { buttonName: 'Docs', iconName: 'Icon.png' },
-    { buttonName: 'Notes', iconName: 'Icon.png' },
-    { buttonName: 'Archive', iconName: 'Icon.png' }
+    { buttonName: 'Home', iconName: 'Home.png' },
+    { buttonName: 'Chat', iconName: 'Chat.png' },
+    { buttonName: 'Projects', iconName: 'Projects.png' },
+    { buttonName: 'Calendar', iconName: 'Calendar.png' },
+    { buttonName: 'Dashboard', iconName: 'Dashboard.png' },
+    { buttonName: 'Docs', iconName: 'Docs.png' },
+    { buttonName: 'Notes', iconName: 'Notes.png' },
+    { buttonName: 'Archive', iconName: 'Archive.png'}
   ];
 
-  Logout: string = 'Icon';
+  Logout: string = 'Logout';
+  logoutIcon: string = 'Logout.png';
 
   ngOnInit(): void {
   }

@@ -4,11 +4,11 @@
             <div class="marginSpace center">
                 <img [src]="userDetails.userIcon" alt="User Icon" class="userIcon">
             </div>
-            <div class="marginSpace center">
-                <p class="darkText boldText">{{ userDetails.userId }}</p>
+            <div class="center">
+                <p class="darkText boldText largeText">{{ userDetails.userId }}</p>
             </div>
             <div class="marginSpace center" *ngIf="userDetails.userNotifications">
-                <div class="hover">
+                <div class="hover spaceLeft">
                     <i class="pi pi-envelope" (click)="navigateToChat()"></i>
                 </div>
             </div>
@@ -29,46 +29,53 @@
         </div>
     </div>
 </div>
-<p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '30vw', height: '50vh' }" [draggable]="false" [resizable]="false">
-    <div class="flex">
-        <div class="marginSpace center">
-            <img [src]="keyDetails.userIcon" alt="User Icon" class="userIcon">
-        </div>
-        <div class="marginSpace center">
-            <p class="darkText boldText">{{ keyDetails.userId }}</p>
-        </div>
-        <div class="marginSpace center" *ngIf="keyDetails.userNotifications">
-            <div class="hover">
-                <i class="pi pi-envelope" (click)="navigateToChat()"></i>
+<div *ngIf="visible">
+    <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '30vw', height: '50vh' }" [draggable]="false" [resizable]="false">
+        <div class="flex">
+            <div class="marginSpace center">
+                <img [src]="keyDetails.userIcon" alt="User Icon" class="userIcon">
+            </div>
+            <div class="center">
+                <p class="darkText boldText">{{ keyDetails.userId }}</p>
+            </div>
+            <div class="marginSpace center" *ngIf="keyDetails.userNotifications">
+                <div class="hover spaceLeft">
+                    <i class="pi pi-envelope" (click)="navigateToChat()"></i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="flex">
-        <div>
-            <button class="yellowButton minButtonSize hover" (click)="projectsPopup()">
-                <p class="darkText boldText">Projects</p>
-            </button>
+        <div class="flex">
+            <div>
+                <button class="yellowButton minButtonSize hover" (click)="projectsPopup()">
+                    <p class="darkText boldText">Projects</p>
+                </button>
+            </div>
+            <div>
+                <button class="greenButton minButtonSize hover" (click)="calendarPopup()">
+                    <p class="lightText boldText">Calendar</p>
+                </button>
+            </div>
+            <div>
+                <button class="navyButton minButtonSize hover" (click)="docsPopup()">
+                    <p class="lightText boldText">Docs</p>
+                </button>
+            </div>
         </div>
         <div>
-            <button class="greenButton minButtonSize hover" (click)="calendarPopup()">
-                <p class="lightText boldText">Calendar</p>
-            </button>
+            <div *ngIf="showProjects">
+                <div>
+                    <select></select>
+                    <div>
+                        <p>Hi</p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="showCalendar">
+                <p>Calendar stuff</p>
+            </div>
+            <div *ngIf="showDocs">
+                <p>Docs stuff</p>
+            </div>
         </div>
-        <div>
-            <button class="navyButton minButtonSize hover" (click)="docsPopup()">
-                <p class="lightText boldText">Docs</p>
-            </button>
-        </div>
-    </div>
-    <div>
-        <div *ngIf="showProjects">
-            <p>Project stuff</p>
-        </div>
-        <div *ngIf="showCalendar">
-            <p>Calendar stuff</p>
-        </div>
-        <div *ngIf="showDocs">
-            <p>Docs stuff</p>
-        </div>
-    </div>
-</p-dialog>
+    </p-dialog>
+</div>

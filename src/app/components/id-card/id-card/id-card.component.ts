@@ -11,79 +11,54 @@ export class IdCardComponent implements OnInit {
 
   details: teamDetails | any;
   keyDetails: any;
-  path: string = "../../../assets/icons/";
+  path: string = "../../../../assets/icons/";
   visible: boolean = false;
-
+  viewID: boolean = false;
   showProjects: boolean = false;
   showCalendar: boolean = false;
   showDocs: boolean = false;
 
   constructor(
-    private router: Router 
-  ){
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
-    
+
     this.details = [
       {
-          userId: "worker_1",
-          userKey: 0,
-          userIcon: this.path + 'worker_1.png',
-          userNotifications: true,
-          jobsWaitingToStart: 2,
-          jobsStarted: 3,
-          jobsCompleted: 4
-      },
-      {
-          userId: "worker_2",
-          userKey: 1,
-          userIcon: this.path + 'worker_2.png',
-          userNotifications: true,
-          jobsWaitingToStart: 2,
-          jobsStarted: 5,
-          jobsCompleted: 2
-      },
-      {
-          userId: "worker_3",
-          userKey: 2,
-          userIcon: this.path + 'worker_3.png',
-          userNotifications: false,
-          jobsWaitingToStart: 3,
-          jobsStarted: 4,
-          jobsCompleted: 3
-      },
-      {
-        userId: "worker_1",
+        userId: "Nadia",
         userKey: 0,
         userIcon: this.path + 'worker_1.png',
         userNotifications: true,
         jobsWaitingToStart: 2,
         jobsStarted: 3,
         jobsCompleted: 4
-    },
-    {
-        userId: "worker_2",
+      },
+      {
+        userId: "Arnica",
         userKey: 1,
         userIcon: this.path + 'worker_2.png',
         userNotifications: true,
         jobsWaitingToStart: 2,
         jobsStarted: 5,
         jobsCompleted: 2
-    },
-    {
-        userId: "worker_3",
+      },
+      {
+        userId: "Leanne",
         userKey: 2,
         userIcon: this.path + 'worker_3.png',
         userNotifications: false,
         jobsWaitingToStart: 3,
         jobsStarted: 4,
         jobsCompleted: 3
-    }
-  ];
+      }
+    ];
+
+    this.viewID = true;
   }
 
-  navigateToChat(){
+  navigateToChat() {
     this.router.navigate(['dashboard/chat'])
   }
 
@@ -94,19 +69,19 @@ export class IdCardComponent implements OnInit {
     // console.log(this.keyDetails.userId);
   }
 
-  projectsPopup(){
+  projectsPopup() {
     this.showProjects = true;
     this.showCalendar = false;
     this.showDocs = false;
   }
 
-  calendarPopup(){
+  calendarPopup() {
     this.showCalendar = true;
     this.showDocs = false;
     this.showProjects = false;
   }
 
-  docsPopup(){
+  docsPopup() {
     this.showDocs = true;
     this.showCalendar = false;
     this.showProjects = false;

@@ -1,0 +1,21 @@
+.week{
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.day{
+    background-color: rgb(255, 255, 255);
+    width: 110px;
+    height: 110px;
+    margin: 5px;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+.right{
+    text-align: right;
+}
