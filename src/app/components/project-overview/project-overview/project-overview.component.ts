@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Briefed, Waiting, InProgress, Done } from './project-overview-interface';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 
 @Component({
   selector: 'app-project-overview',
@@ -16,6 +17,10 @@ export class ProjectOverviewComponent implements OnInit {
   countOfInProgress: number = 0;
   done: Briefed | any;
   countOfDone: number = 0;
+
+  selectedProject: Briefed | undefined;
+
+  @Output() selectedOptionChange = new EventEmitter<any>();
 
   ngOnInit(): void {
     this.briefed = [
@@ -45,5 +50,10 @@ export class ProjectOverviewComponent implements OnInit {
       { projectName: 'Project D3', projectDescription: 'Project about concept D3' }
     ];
     this.countOfDone = this.done.length;
+  }
+
+  onSelectionChange() {
+    this.selectedOptionChange.emit(this.selectedProject);
+    console.log(this.selectedProject);
   }
 }

@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +18,7 @@ import { IdCardComponent } from './components/id-card/id-card/id-card.component'
 import { ProjectOverviewComponent } from './components/project-overview/project-overview/project-overview.component';
 import { ProjectsComponent } from './dashboard/projects/projects.component';
 import { CalendarComponent } from './dashboard/calendar/calendar.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 // prime ng
 import { DropdownModule } from 'primeng/dropdown';
 import { ChatComponent } from './dashboard/chat/chat/chat.component';
@@ -36,7 +38,8 @@ import { DialogModule } from 'primeng/dialog';
     ProjectOverviewComponent,
     ChatComponent,
     ProjectsComponent,
-    CalendarComponent
+    CalendarComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { DialogModule } from 'primeng/dialog';
     AppRoutingModule,
     DropdownModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

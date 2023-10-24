@@ -1,0 +1,28 @@
+.banner{
+    display: flex;
+}
+
+.leftHeading{
+    width: 30%;
+    display: flex;
+    margin: 2%;
+}
+
+.leftHeadingIcon{
+    height: 100px;
+}
+
+.leftHeadingText{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-left: 5%;
+}
+
+.rightHeading{
+    width: 66%;
+    display: flex;
+    justify-content: right;
+    align-content: center;
+    margin: 4%;
+}

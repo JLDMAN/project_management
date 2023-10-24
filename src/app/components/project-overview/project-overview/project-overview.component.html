@@ -1,10 +1,12 @@
 <div class="frame">
-    <div class="card flex justify-content-center dropDownCard">
+    <div class="card flex justify-content-center dropDownCard" style="border-radius: 20px;">
         <p-dropdown 
             placeholder="Briefed ({{countOfBrief}})" 
             [options]="briefed" 
             optionLabel="projectName" 
-            [style]="{'width': '100%'}">
+            [style]="{'width': '100%'}"
+            [(ngModel)]="selectedProject"
+            (ngModelChange)="onSelectionChange()">
         </p-dropdown>
     </div>
     <div class="card flex justify-content-center dropDownCard">
@@ -12,7 +14,9 @@
             placeholder="Waiting ({{countOfWaiting}})" 
             [options]="waiting" 
             optionLabel="projectName" 
-            [style]="{'width': '100%'}">
+            [style]="{'width': '100%'}"
+            [(ngModel)]="selectedProject"
+            (ngModelChange)="onSelectionChange()">
         </p-dropdown>
     </div>
     <div class="card flex justify-content-center dropDownCard">
@@ -20,7 +24,9 @@
             placeholder="In Progress ({{countOfInProgress}})" 
             [options]="inProgress" 
             optionLabel="projectName" 
-            [style]="{'width': '100%'}">
+            [style]="{'width': '100%'}"
+            [(ngModel)]="selectedProject"
+            (ngModelChange)="onSelectionChange()">
         </p-dropdown>
     </div>
     <div class="card flex justify-content-center dropDownCard">
@@ -28,7 +34,9 @@
             placeholder="Done ({{countOfDone}})" 
             [options]="done" 
             optionLabel="projectName" 
-            [style]="{'width': '100%'}">
+            [style]="{'width': '100%'}"
+            [(ngModel)]="selectedProject"
+            (ngModelChange)="onSelectionChange()">
         </p-dropdown>
     </div>
 </div>

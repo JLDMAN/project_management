@@ -1,1 +1,89 @@
-<p>projects works!</p>
+<div>
+    <app-user-info></app-user-info>
+</div>
+<div>
+    <button>+ Create brief</button>
+</div>
+<div class="flex">
+    <div class="contentPadding">
+        <app-project-overview (selectedOptionChange)="onChildSelectionChange($event)"></app-project-overview>
+    </div>
+    <div class="border">
+        <!-- show project details -->
+        <div class="projectCard" *ngIf="showProject">
+            <div class="projectHeader">
+                Due date countdown
+            </div>
+            <div class="space">
+                <div>
+                    <p class="darkText largeText">{{selectedProject}} - {{selectedProjectDescription}}</p>
+                </div>
+                <div class="flex">
+                    <div class="smallFrame">
+                        <p class="darkText mediumText">Due date</p>
+                    </div>
+                    <div class="bigFrame">
+                        <p class="darkText mediumText">{{date | date: 'EEE, MMM d, y, h:mm a'}}</p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="smallFrame">
+                        <p class="darkText mediumText">Status</p>
+                    </div>
+                    <div class="bigFrame">
+                        <p class="darkText mediumText">{{status}}</p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="smallFrame">
+                        <p class="darkText mediumText">Priority</p>
+                    </div>
+                    <div class="bigFrame">
+                        <div>
+                            <p class="darkText mediumText priority" [ngClass]="getPriorityClass(priority)">{{priority}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="center flex">
+                    <div>
+                        <button class="lightButton" (click)="openTracker()">
+                            <p class="darkText">Track porject</p>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="darkButton" (click)="moveToDone()">
+                            <p class="lightText">Mark as done</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- show the status of a project -->
+        <div class="trackerCard" *ngIf="showTracker">
+            <div class="trackerHeader flex">
+                <div class="leftborder">
+                    <p class="darkText largeText"> KP Life pull-up banners </p>       
+                </div>
+                <div class="rightBorder">
+                    <button class="clearButton" (click)="closeTracker()">X</button>
+                </div>
+            </div>
+            <div class="space">
+                <div *ngFor="let project of projectProgress" class="flex">
+                    <div>
+                        <p class="darkText mediumText">{{project.icon}}</p>
+                    </div>
+                    <div>
+                        <p class="darkText mediumText">{{project.description}}</p>
+                    </div>
+                    <div>
+                        <p class="darkText mediumText">{{project.date}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- create new brief -->
+        <div class="briefCard" *ngIf="showBrief">
+        </div>
+    </div>
+</div>
