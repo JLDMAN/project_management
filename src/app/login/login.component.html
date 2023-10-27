@@ -2,14 +2,21 @@
     <div class="negativeSpace">
         <div class="content text">
             <div class="imageSpace center">
-                <img src="../../assets/icons/Asset_1.png" class="img_1">
+                <p-carousel [value]="products" [numVisible]="1" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions" [autoplayInterval]=3000>
+                    <ng-template let-product pTemplate="item">
+                        <div class="{{product.background}}">
+                            <img src="../../assets/icons/{{product.image}}" [alt]="product.name" class="img_1" />
+                        </div>
+                    </ng-template>
+                </p-carousel>
+                <!-- <img src="../../assets/icons/Asset_1.png" class="img_1"> -->
             </div> 
             <div class="textSpace">
                 <div class="center bigSpaceMargin">
                     <img src="../../assets/icons/Asset_2.png" class="img_2">
                 </div>
                 <div class="center smallSpaceMargin">
-                    Log into your account
+                    <p class="mediumText darkText">Log into your account</p>
                 </div>
                 <div [formGroup]="loginForm">
                     <div class="center smallSpaceMargin">
@@ -19,14 +26,16 @@
                         <input type="text" formControlName="password" placeholder="Password">
                     </div>
                 </div>
-                <div class="center mediumSpaceMargin">
+                <div class="center smallSpaceMargin">
                     <button class="button" (click)="login()">Login</button>
                 </div>
-                <div class="center smallSpaceMargin">
-                    <p>Create account</p>
+                <div class="center">
+                    <button class="clear" (click)="goToSingup()">
+                        <p class="smallText darkText highlightText">Create account</p>
+                    </button>
                 </div>
                 <div class="center bottomSpace">
-                    <p>Forgot password</p>
+                    <p class="smallText darkText">Forgot password</p>
                 </div>
             </div>
         </div>

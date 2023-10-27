@@ -13,9 +13,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border-color: red;
+    border-style: solid; */
 }
 
-.leftborder{
+.leftBorder{
     width: 100%;
     display: flex;
     justify-content: left;
@@ -48,7 +50,7 @@
     border-radius: 10px 10px 0px 0px;
     background-color: rgb(246, 22, 22);
     color: white;
-    padding: 5%;
+    padding: 1%;
 }
 
 .trackerCard {
@@ -61,7 +63,13 @@
     border-radius: 10px 10px 0px 0px;
     background-color: #EEEDED;
     color: white;
-    padding: 5%;
+    padding: 1%;
+}
+
+.briefCard {
+    width: 80%;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .space {
@@ -93,6 +101,16 @@
     border-radius: 25px;
     background-color: #EEEDED;
     border: none;
+}
+
+.outlineButton{
+    margin: 0px 10px;
+    min-width: 150px;
+    padding: 2px 10px;
+    border-radius: 25px;
+    background-color: #ffffff;
+    border: #291B57 solid;
+    border-width: 1px;
 }
 
 button:hover {
@@ -127,4 +145,22 @@ button:hover {
 
 .rightAlign{
     text-align: right;
+}
+
+textarea {
+    width: 100%; /* Set the textarea width to 100% */
+    box-sizing: border-box; /* Include padding and border in the width */
+    resize: none; /* Prevents resizing */
+}
+
+.spaceButtom{
+    margin-bottom: 3%;
+}
+
+.spaceLeft{
+    margin-left: 3%;
+}
+
+.sapceTop{
+    margin: 3% 0%;
 }

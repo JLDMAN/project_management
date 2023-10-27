@@ -1,8 +1,10 @@
 <div>
     <app-user-info></app-user-info>
 </div>
-<div>
-    <button>+ Create brief</button>
+<div class="spaceButtom">
+    <button class="lightButton" (click)="openNewBrief()">
+        <p class="darkText">+ Create brief</p>
+    </button>
 </div>
 <div class="flex">
     <div class="contentPadding">
@@ -12,7 +14,7 @@
         <!-- show project details -->
         <div class="projectCard" *ngIf="showProject">
             <div class="projectHeader">
-                Due date countdown
+                <p class="lightText mediumText"> Due date countdown </p>
             </div>
             <div class="space">
                 <div>
@@ -40,7 +42,7 @@
                     </div>
                     <div class="bigFrame">
                         <div>
-                            <p class="darkText mediumText priority" [ngClass]="getPriorityClass(priority)">{{priority}}</p>
+                            <p class="darkText mediumText priority" [ngClass]="getPriorityClassColor(priority)">{{priority}}</p>
                         </div>
                     </div>
                 </div>
@@ -61,7 +63,7 @@
         <!-- show the status of a project -->
         <div class="trackerCard" *ngIf="showTracker">
             <div class="trackerHeader flex">
-                <div class="leftborder">
+                <div class="leftBorder">
                     <p class="darkText largeText"> KP Life pull-up banners </p>       
                 </div>
                 <div class="rightBorder">
@@ -70,20 +72,67 @@
             </div>
             <div class="space">
                 <div *ngFor="let project of projectProgress" class="flex">
-                    <div>
-                        <p class="darkText mediumText">{{project.icon}}</p>
+                    <div class="leftBorder">
+                        <p class="darkText smallText"><i class="pi {{project.icon}}" [style.color]="getIconColor(project.icon)"></i></p>
                     </div>
-                    <div>
-                        <p class="darkText mediumText">{{project.description}}</p>
+                    <div class="leftBorder">
+                        <p class="darkText smallText">{{project.description}}</p>
                     </div>
-                    <div>
-                        <p class="darkText mediumText">{{project.date}}</p>
+                    <div class="rightBorder">
+                        <p class="darkText smallText">{{project.date}}</p>
                     </div>
                 </div>
             </div>
         </div>
         <!-- create new brief -->
         <div class="briefCard" *ngIf="showBrief">
+            <div class="trackerHeader flex">
+                <div class="leftBorder">
+                    <p class="darkText largeText"> New Brief </p>       
+                </div>
+                <div class="rightBorder">
+                    <button class="clearButton" (click)="closeTracker()">X</button>
+                </div>
+            </div>
+            <div class="space" [formGroup]="briefForm">
+                <div>
+                    <p class="darkText smallText">Project Name</p>
+                    <textarea pInputTextarea [autoResize]="false" formControlName="projectName"></textarea>
+                </div>
+                <div class="flex">
+                    <div>
+                        <p class="darkText smallText">Project Type</p>
+                        <p-dropdown formControlName="projectType" [options]="projects" optionLabel="name" optionValue="value"></p-dropdown>
+                    </div>
+                    <div class="spaceLeft">
+                        <p class="darkText smallText">Project Timeline</p>
+                        <p-dropdown formControlName="timeCount" [options]="timeCounter" optionLabel="count" optionValue="value"></p-dropdown>
+                        <p-dropdown formControlName="timeUnit" [options]="timeUnit" optionLabel="unit" optionValue="value"></p-dropdown>
+                    </div>
+                </div>
+                <div class="sapceTop">
+                    <p-selectButton formControlName="departement" [options]="marketingOptions" optionLabel="name" optionValue="value"></p-selectButton> 
+                </div>
+                <div class="sapceTop">
+                    <p class="darkText smallText">Priority</p>
+                    <p-dropdown class="darkText smallText" formControlName="priority" [options]="priorityOptions" optionLabel="urgency" optionValue="value"></p-dropdown>
+                </div>
+                <div>
+                    <p class="darkText smallText">Project description</p>
+                    <textarea pInputTextarea [autoResize]="false" formControlName="description"></textarea>
+                </div>
+                <div class="sapceTop">
+                    <button class="outlineButton" (click)="submitBriefEntry()">
+                        <p class="darkText">Link Brief</p>
+                    </button>
+                    <button class="outlineButton" (click)="submitBriefEntry()">
+                        <p class="darkText">Upload</p>
+                    </button>
+                    <button class="darkButton" (click)="submitBriefEntry()">
+                        <p class="lightText">Submit</p>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

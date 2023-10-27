@@ -24,6 +24,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ChatComponent } from './dashboard/chat/chat/chat.component';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { SignupComponent } from './signup/signup.component';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,8 @@ import { DialogModule } from 'primeng/dialog';
     ChatComponent,
     ProjectsComponent,
     CalendarComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,10 @@ import { DialogModule } from 'primeng/dialog';
     DropdownModule,
     ButtonModule,
     DialogModule,
-    FormsModule
+    FormsModule,
+    SelectButtonModule,
+    InputTextareaModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

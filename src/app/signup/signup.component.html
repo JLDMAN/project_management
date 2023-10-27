@@ -1,0 +1,43 @@
+<div class="componentBackground">
+    <div class="negativeSpace">
+        <div class="content text">
+            <div class="textSpace">
+                <div class="center smallSpaceMargin">
+                    <p class="mediumText darkText">Signup to TeamMATE</p>
+                </div>
+                <div [formGroup]="signupForm">
+                    <div class="center smallSpaceMargin">
+                        <input type="text" formControlName="username" placeholder="Username">
+                    </div>
+                    <div class="center smallSpaceMargin">
+                        <input type="email" formControlName="email" placeholder="Enter user email">
+                    </div>
+                    <div class="center smallSpaceMargin">
+                        <input type="password" formControlName="password" placeholder="Password">
+                    </div>
+                    <div class="center smallSpaceMargin">
+                        <input type="password" formControlName="passwordCheck" placeholder="Confirm password">
+                    </div>
+                    <div class="center smallSpaceMargin">
+                        <p-dropdown 
+                            class="sizing"
+                            [style]="{'width': '100%'}"
+                            formControlName="status" 
+                            placeholder="User">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="center smallSpaceMargin">
+                    <button class="button smallSpaceMargin" (click)="singup()">
+                        <p class="smallText">Create account</p>
+                    </button>
+                </div>
+                <div class="center smallSpaceMargin">
+                    <button class="clear" (click)="goTologin()">
+                        <p class="smallText darkText highlightText">Back to Login</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
