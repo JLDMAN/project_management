@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const userController = {
   async registerUser(req, res) {
-    const { name, email, status, password } = req.body;
+    const { userName, email, status, password } = req.body;
 
     try {
       const existingUser = await User.findByEmail(email);
@@ -15,7 +15,7 @@ const userController = {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         const user = await User.addUser(
-          name,
+          userName,
           email,
           status,
           hashedPassword
@@ -33,15 +33,14 @@ const userController = {
   },
 
   async loginUser(req, res) {
-    const { email, password } = req.body;
-  
+    const { userName, password } = req.body;  
     try {
       // Check the user on the database
-      const user = await User.findByEmail(email);
+      const user = await User.findByUsername(userName);
   
       if (!user) {
         res.status(401).json({
-          error: 'Invalid credentials',
+          error: 'Invalid credentials, user not found.',
           status: 'false',
         });
         return; // Exit the function early if the user is not found
@@ -71,3 +70,5 @@ const userController = {
     }
   }
 };
+
+module.exports = userController;

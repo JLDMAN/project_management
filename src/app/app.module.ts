@@ -28,6 +28,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { SignupComponent } from './signup/signup.component';
 import { CarouselModule } from 'primeng/carousel';
+import { MessagesModule } from 'primeng/messages';
+// services
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { CarouselModule } from 'primeng/carousel';
     FormsModule,
     SelectButtonModule,
     InputTextareaModule,
-    CarouselModule
+    CarouselModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

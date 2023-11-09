@@ -1,7 +1,7 @@
 // use express framework to start node js server
 const express = require('express');
 const bodyParser = require('body-parser');
-const { Pool } = require('pg'); 
+// const { Pool } = require('pg'); 
 const userRoutes = require('./routes/userRoutes'); 
 const cors = require('cors'); 
 

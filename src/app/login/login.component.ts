@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../service/userservice.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent {
   responsiveOptions: any[] | undefined;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ){
   }
 
@@ -50,7 +52,17 @@ export class LoginComponent {
 }
 
   login(){
-    this.router.navigate(['dashboard']);
+    // this.router.navigate(['dashboard']);
+    const userName = "admin";
+    const password = "admin";
+
+    this.userService.loginUser(userName, password).subscribe( 
+      (res: any) => {
+        console.log("user found in database")
+        this.router.navigate(['dashboard']);
+    },(error) => {
+      console.log("bad login, user not found");
+    })
   }
 
   goToSingup(){

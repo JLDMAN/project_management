@@ -37,7 +37,7 @@ export class ProjectsComponent implements OnInit {
   projects: any = [
     {name: "Emailer", value: "email"},
     {name: "Social Media Post", value: "social"},
-    {name: "Birthday", value: "birthday"}
+    {name: "Personal KPPD", value: "kppd"}
   ];
 
   timeCounter: any = [

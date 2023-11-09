@@ -7,7 +7,7 @@
                 </div>
                 <div [formGroup]="signupForm">
                     <div class="center smallSpaceMargin">
-                        <input type="text" formControlName="username" placeholder="Username">
+                        <input type="text" formControlName="userName" placeholder="Username">
                     </div>
                     <div class="center smallSpaceMargin">
                         <input type="email" formControlName="email" placeholder="Enter user email">
@@ -20,6 +20,7 @@
                     </div>
                     <div class="center smallSpaceMargin">
                         <p-dropdown 
+                            [options]="statusOptions"
                             class="sizing"
                             [style]="{'width': '100%'}"
                             formControlName="status" 
@@ -28,7 +29,7 @@
                     </div>
                 </div>
                 <div class="center smallSpaceMargin">
-                    <button class="button smallSpaceMargin" (click)="singup()">
+                    <button class="button smallSpaceMargin" (click)="singUp()">
                         <p class="smallText">Create account</p>
                     </button>
                 </div>
@@ -37,6 +38,9 @@
                         <p class="smallText darkText highlightText">Back to Login</p>
                     </button>
                 </div>
+                <div class="errorMessage">
+                    <p-messages [(value)]="messages" [enableService]="false"></p-messages>
+                </div>    
             </div>
         </div>
     </div>
