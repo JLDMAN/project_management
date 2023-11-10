@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../service/userservice.service';
+import { Message} from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,8 @@ import { UserService } from '../service/userservice.service';
 export class LoginComponent {
 
   products: any = [];
-
   responsiveOptions: any[] | undefined;
+  messages: Message[] = [];
 
   constructor(
     private router: Router,
@@ -21,7 +22,7 @@ export class LoginComponent {
   }
 
   loginForm = new FormGroup({
-    username: new FormControl(''),
+    userName: new FormControl(''),
     password: new FormControl('')
   });
 
@@ -52,17 +53,19 @@ export class LoginComponent {
 }
 
   login(){
-    // this.router.navigate(['dashboard']);
-    const userName = "admin";
-    const password = "admin";
+    const userName = this.loginForm.value.userName;
+    const password = this.loginForm.value.password;
 
-    this.userService.loginUser(userName, password).subscribe( 
-      (res: any) => {
-        console.log("user found in database")
-        this.router.navigate(['dashboard']);
-    },(error) => {
-      console.log("bad login, user not found");
-    })
+    if (userName === '' || password === '') {
+      this.messages = [{ severity: 'error', summary: 'Error', detail: 'Please fill in all fields.' }];
+    }else{
+      this.userService.loginUser(userName, password).subscribe( 
+        (res: any) => {
+          this.router.navigate(['dashboard']);
+      },(error) => {
+        this.messages = [{ severity: 'error', summary: 'Error', detail: 'User not found please check credentials.' }];
+      })
+    }
   }
 
   goToSingup(){

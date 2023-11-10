@@ -40,18 +40,18 @@ export class SignupComponent {
     const status = this.signupForm.value.status;
 
     if (userName === '' || password === '' || email === '' || status === null) {
-      this.messages = [{ severity: 'error', summary: 'Error', detail: 'Please fill in all fields' }]
+      this.messages = [{ severity: 'error', summary: 'Error', detail: 'Please fill in all fields.' }];
     } else {   
       this.userService.registerUser(userName, status, password, email).subscribe(
         (res: any) => {
           // Handle success (e.g., show a success message)
           console.log('User registered:', res);
-          this.messages = [{severity: 'success', summary: 'Success', detail: 'User account created, try logging in'}]
+          this.messages = [{severity: 'success', summary: 'Success', detail: 'User account created, try logging in.'}];
         },
         (error) => {
           // Handle error (e.g., show an error message)
           console.log('Registration failed:', error);
-          this.messages = [{severity: 'error', summary: 'Error', detail: 'Email account already used'}]
+          this.messages = [{severity: 'error', summary: 'Error', detail: 'Email account already used.'}]
         })
     }
   }

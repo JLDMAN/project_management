@@ -41,6 +41,7 @@
     background-color: #291B57;
     border-radius: 20px;
     padding: 1%;
+    z-index: 1;
 }
 
 .yellowBorder{
@@ -55,4 +56,8 @@
 
 .teamContainer{
     margin: 1%;
+}
+
+.border{
+    border: red 1px solid;
 }

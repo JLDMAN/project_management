@@ -18,7 +18,7 @@
                 </div>
                 <div [formGroup]="loginForm">
                     <div class="center smallSpaceMargin">
-                        <input type="text" formControlName="username" placeholder="Username">
+                        <input type="text" formControlName="userName" placeholder="User name">
                     </div>
                     <div class="center smallSpaceMargin">
                         <input type="text" formControlName="password" placeholder="Password">
@@ -32,6 +32,9 @@
                         <p class="smallText darkText highlightText">Create account</p>
                     </button>
                 </div>
+                <div class="errorMessage">
+                    <p-messages [(value)]="messages" [enableService]="false"></p-messages>
+                </div>    
                 <div class="center bottomSpace">
                     <p class="smallText darkText">Forgot password</p>
                 </div>

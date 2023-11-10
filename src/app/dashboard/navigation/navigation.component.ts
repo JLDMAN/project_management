@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+
+  constructor(
+    private router: Router
+  ){
+  }
 
   names: any[] = [
     { buttonName: 'Home', iconName: 'Home.png' },
@@ -22,5 +28,10 @@ export class NavigationComponent implements OnInit {
   logoutIcon: string = 'Logout.png';
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['login']);
   }
 }

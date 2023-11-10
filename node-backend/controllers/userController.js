@@ -6,7 +6,7 @@ const userController = {
     const { userName, email, status, password } = req.body;
 
     try {
-      const existingUser = await User.findByEmail(email);
+      const existingUser = await User.findByUsername(userName);
 
       if (existingUser) {
         return res.status(400).json({ error: "Email is already in use" });
@@ -47,7 +47,7 @@ const userController = {
       }
   
       // Compare the provided password with the stored hashed password
-      const passwordMatch = await bcrypt.compare(password, user.password);
+      const passwordMatch = await bcrypt.compare(password, user.user_pwd);
   
       if (passwordMatch) {
         console.log("Password matched");

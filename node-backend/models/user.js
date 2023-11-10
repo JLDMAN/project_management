@@ -4,7 +4,6 @@ const pool = require("../config/database");
 class User {
   static async findByUsername(userName) {
 
-    console.log("username in module: " + userName);
     const checkUsernameQuery = `
       SELECT * from users
       WHERE user_name = $1
@@ -14,10 +13,10 @@ class User {
       const { rows } = await pool.query(checkUsernameQuery, [userName]);
 
       if (rows.length === 0) {
-        console.log("User not found but rows indicate entry:", rows[0]);
+        console.log("User not found");
         return;
       } else {
-        console.log("User found:", rows[0]);
+        console.log("User found at row: ", rows[0]);
         return rows[0];
       }
     } catch (error) {
