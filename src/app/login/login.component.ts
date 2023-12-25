@@ -14,6 +14,7 @@ export class LoginComponent {
   products: any = [];
   responsiveOptions: any[] | undefined;
   messages: Message[] = [];
+  userName: any ='';
 
   constructor(
     private router: Router,
@@ -53,16 +54,18 @@ export class LoginComponent {
 }
 
   login(){
-    const userName = this.loginForm.value.userName;
+    this.userName = this.loginForm.value.userName;
     const password = this.loginForm.value.password;
 
-    if (userName === '' || password === '') {
+    if (this.userName === '' || password === '') {
       this.messages = [{ severity: 'error', summary: 'Error', detail: 'Please fill in all fields.' }];
     }else{
-      this.userService.loginUser(userName, password).subscribe( 
+      this.userService.loginUser(this.userName, password).subscribe( 
         (res: any) => {
-          this.router.navigate(['dashboard']);
-      },(error) => {
+          localStorage.setItem('user', this.userName);
+          localStorage.setItem('userStatus', res.userStatus);
+          this.router.navigate(['dashboard']);          
+        },(error) => {
         this.messages = [{ severity: 'error', summary: 'Error', detail: 'User not found please check credentials.' }];
       })
     }

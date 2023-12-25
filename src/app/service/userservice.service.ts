@@ -23,4 +23,12 @@ export class UserService {
     const userCredentials = {userName, password};
     return this.http.post(`${this.apiUrl}/login`, userCredentials);
   }
+
+  loadNavigation(){
+      const userName = localStorage.getItem('user');  
+      // Construct an object with the username
+      const body = { userName: userName };
+    
+      return this.http.post(`${this.apiUrl}/navigation`, body);
+  }
 }

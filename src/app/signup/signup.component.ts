@@ -11,7 +11,7 @@ import { Message} from 'primeng/api';
 })
 export class SignupComponent {
 
-  statusOptions: any = ['admin', 'client', 'worker'];
+  statusOptions: any = ['manager', 'member', 'client'];
   messages: Message[] = [];
 
   constructor(

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { BriefService } from 'src/app/service/brief.service';
+import { Message} from 'primeng/api';
 
 @Component({
   selector: 'app-projects',
@@ -17,6 +19,7 @@ export class ProjectsComponent implements OnInit {
   status: string = '';
   priority: string = 'Medium';
   cols: number = 40;
+  messages: Message[] = [];
 
   briefForm = new FormGroup({
     projectName: new FormControl(''),
@@ -30,38 +33,38 @@ export class ProjectsComponent implements OnInit {
   })
 
   marketingOptions: any = [
-    {name: "Brand marketing", value: "bm"},
-    {name: "Digital marketing", value: "dm"}
+    { name: "Brand marketing", value: "bm" },
+    { name: "Digital marketing", value: "dm" }
   ];
 
   projects: any = [
-    {name: "Emailer", value: "email"},
-    {name: "Social Media Post", value: "social"},
-    {name: "Personal KPPD", value: "kppd"}
+    { name: "Emailer", value: "email" },
+    { name: "Social Media Post", value: "social" },
+    { name: "Personal KPPD", value: "kppd" }
   ];
 
   timeCounter: any = [
-    {count: 1, value: 1},
-    {count: 2, value: 2},
-    {count: 3, value: 3},
-    {count: 4, value: 4},
-    {count: 5, value: 5},
-    {count: 6, value: 6}
+    { count: 1, value: 1 },
+    { count: 2, value: 2 },
+    { count: 3, value: 3 },
+    { count: 4, value: 4 },
+    { count: 5, value: 5 },
+    { count: 6, value: 6 }
   ];
 
   timeUnit: any = [
-  {unit: "Day", value: "day"},
-  {unit: "Week", value: "week"},
-  {unit: "Month", value: "month"}
+    { unit: "Day", value: "day" },
+    { unit: "Week", value: "week" },
+    { unit: "Month", value: "month" }
   ];
 
   priorityOptions: any = [
-    {urgency: "Not urgent", value:"nu"},
-    {urgency: "Medium", value:"me"},
-    {urgency: "Urgent", value:"u"},
+    { urgency: "Not urgent", value: "nu" },
+    { urgency: "Medium", value: "me" },
+    { urgency: "Urgent", value: "u" },
   ];
 
-  projectProgress: any =[
+  projectProgress: any = [
     {
       icon: "pi-check", description: "Briefed: Business owner", date: "08 Sep"
     },
@@ -88,6 +91,12 @@ export class ProjectsComponent implements OnInit {
     }
   ];
 
+  constructor(
+    private briefed: BriefService
+  ) {
+
+  }
+
   ngOnInit(): void {
   }
 
@@ -101,7 +110,7 @@ export class ProjectsComponent implements OnInit {
     // navigation
     this.showTracker = false;
     this.showProject = true;
-    this.showBrief = false;  
+    this.showBrief = false;
   }
 
   getPriorityClassColor(priority: string) {
@@ -121,36 +130,41 @@ export class ProjectsComponent implements OnInit {
     return icon === 'pi-check' ? 'green' : icon === 'pi-minus-circle' ? 'red' : 'black'; // Default to black if not recognized
   }
 
-  openTracker(){
+  openTracker() {
     this.showTracker = true;
     this.showProject = false;
     this.showBrief = false;
   }
 
-  closeTracker(){
+  closeTracker() {
     this.showTracker = false;
     this.showProject = true;
     this.showBrief = false;
   }
 
-  moveToDone(){
+  moveToDone() {
     // will amend array values;
   }
 
-  openNewBrief(){
+  openNewBrief() {
     this.showBrief = true;
     this.showTracker = false;
     this.showProject = false;
   }
 
-  submitBriefEntry(){
-    console.log("project name: " + this.briefForm.value.projectName);
-    console.log("project type: " + this.briefForm.value.projectType);
-    console.log("amount of time: " + this.briefForm.value.timeCount);
-    console.log("time unit " + this.briefForm.value.timeUnit);
-    console.log("which departement " + this.briefForm.value.departement);
-    console.log("priority status: " + this.briefForm.value.priority);
-    console.log("project description: " + this.briefForm.value.description);
-    this.closeTracker();
+  submitBriefEntry() {
+    const form = this.briefForm.value;
+
+    // this.closeTracker();
+    if (form){
+      this.briefed.createBrief(localStorage.getItem('user'),form.projectName, form.projectType, form.timeCount, form.timeUnit, form.departement, form.priority, form.description).subscribe(
+        (res: any) => {
+          this.messages = [{ severity: 'success', summary: 'Success', detail: 'Brief has been created' }];
+        }, (error) => {
+          this.messages = [{ severity: 'error', summary: 'Error', detail: 'Brief not created, duplicate information provided'}];
+        })
+    } else {
+      console.log("breif is blank, enter data");
+    }
   }
 }

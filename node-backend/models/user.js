@@ -16,7 +16,6 @@ class User {
         console.log("User not found");
         return;
       } else {
-        console.log("User found at row: ", rows[0]);
         return rows[0];
       }
     } catch (error) {

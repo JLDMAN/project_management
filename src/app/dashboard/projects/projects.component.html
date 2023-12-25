@@ -122,17 +122,21 @@
                     <textarea pInputTextarea [autoResize]="false" formControlName="description"></textarea>
                 </div>
                 <div class="sapceTop">
-                    <button class="outlineButton" (click)="submitBriefEntry()">
+                    <!-- <button class="outlineButton" (click)="submitBriefEntry()">
                         <p class="darkText">Link Brief</p>
                     </button>
                     <button class="outlineButton" (click)="submitBriefEntry()">
                         <p class="darkText">Upload</p>
-                    </button>
+                    </button> -->
                     <button class="darkButton" (click)="submitBriefEntry()">
                         <p class="lightText">Submit</p>
                     </button>
+                    <div class="errorMessage">
+                        <p-messages [(value)]="messages" [enableService]="false"></p-messages>
+                    </div>  
                 </div>
             </div>
         </div>
     </div>
 </div>
+ 

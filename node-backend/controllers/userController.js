@@ -35,7 +35,7 @@ const userController = {
   async loginUser(req, res) {
     const { userName, password } = req.body;  
     try {
-      // Check the user on the database
+      // Check the user on the database and bind properties
       const user = await User.findByUsername(userName);
   
       if (!user) {
@@ -55,6 +55,7 @@ const userController = {
         res.status(200).json({
           message: 'User logged in successfully',
           status: "success",
+          userStatus: user.user_status
         });
       } else {
         console.log("Password does not match");

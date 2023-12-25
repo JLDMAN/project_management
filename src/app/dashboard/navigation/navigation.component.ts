@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/userservice.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,26 +9,54 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(
-    private router: Router
-  ){
-  }
-
-  names: any[] = [
-    { buttonName: 'Home', iconName: 'Home.png' },
-    { buttonName: 'Chat', iconName: 'Chat.png' },
-    { buttonName: 'Projects', iconName: 'Projects.png' },
-    { buttonName: 'Calendar', iconName: 'Calendar.png' },
-    { buttonName: 'Dashboard', iconName: 'Dashboard.png' },
-    { buttonName: 'Docs', iconName: 'Docs.png' },
-    { buttonName: 'Notes', iconName: 'Notes.png' },
-    { buttonName: 'Archive', iconName: 'Archive.png'}
-  ];
-
+  names: any[] = [];
   Logout: string = 'Logout';
   logoutIcon: string = 'Logout.png';
 
+  constructor(
+    private router: Router,
+    private service: UserService
+  ){
+  }
+
   ngOnInit(): void {
+    // this.service.loadNavigation();
+    const status = localStorage.getItem('userStatus');
+    console.log("user status recieved afetr login: " + status);
+
+    switch (status) {
+      case 'admin':
+        this.names = [
+          { buttonName: 'Home', iconName: 'Home.png' },
+          { buttonName: 'Chat', iconName: 'Chat.png' },
+          { buttonName: 'Projects', iconName: 'Projects.png' },
+          { buttonName: 'Calendar', iconName: 'Calendar.png' },
+          { buttonName: 'Dashboard', iconName: 'Dashboard.png' },
+          { buttonName: 'Docs', iconName: 'Docs.png' },
+          { buttonName: 'Notes', iconName: 'Notes.png' },
+          { buttonName: 'Archive', iconName: 'Archive.png'}
+        ];
+        break;
+      case 'client':
+        this.names = [
+          { buttonName: 'Home', iconName: 'Home.png' },
+        ];
+        break;
+      case 'manager':
+        this.names = [
+          { buttonName: 'Chat', iconName: 'Chat.png' },
+        ];
+        break;
+      case 'member':
+        this.names = [
+          { buttonName: 'Archive', iconName: 'Archive.png'}
+        ];
+        break;
+      default:
+        this.names = [
+          { buttonName: 'err', iconName: '' }
+        ];
+    }
   }
 
   logout(){
