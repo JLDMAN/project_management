@@ -160,7 +160,7 @@ export class ProjectsComponent implements OnInit {
       this.briefed.createBrief(localStorage.getItem('user'),form.projectName, form.projectType, form.timeCount, form.timeUnit, form.departement, form.priority, form.description).subscribe(
         (res: any) => {
           this.messages = [{ severity: 'success', summary: 'Success', detail: 'Brief has been created' }];
-        }, (error) => {
+        }, (error: any) => {
           this.messages = [{ severity: 'error', summary: 'Error', detail: 'Brief not created, duplicate information provided'}];
         })
     } else {

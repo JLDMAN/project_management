@@ -34,7 +34,8 @@ export class NavigationComponent implements OnInit {
           { buttonName: 'Dashboard', iconName: 'Dashboard.png' },
           { buttonName: 'Docs', iconName: 'Docs.png' },
           { buttonName: 'Notes', iconName: 'Notes.png' },
-          { buttonName: 'Archive', iconName: 'Archive.png'}
+          { buttonName: 'Archive', iconName: 'Archive.png'},
+          { buttonName: 'Briefs', iconName: 'Docs.png'}
         ];
         break;
       case 'client':
