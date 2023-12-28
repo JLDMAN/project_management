@@ -53,6 +53,24 @@ class Brief {
       throw error; // Rethrow the error to be caught by the calling code
     }
   }
+
+  static async returnBriefs(){
+    try {
+      // Step 1: Get user_id based on userName
+      const getBriefs = 'SELECT * FROM briefs';
+      const briefsResult = await pool.query(getBriefs);
+
+      if (!briefsResult) {
+        console.error('Error: Breifs not returned');
+        return false;
+      }else{     
+        return briefsResult;
+      }
+    } catch (error) {
+      console.error('Error whilst getting briefs:', error);
+      throw error; // Rethrow the error to be caught by the calling code
+    }
+  }
 }
 
 module.exports = Brief;

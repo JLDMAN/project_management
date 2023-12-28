@@ -19,16 +19,18 @@ import { ProjectOverviewComponent } from './components/project-overview/project-
 import { ProjectsComponent } from './dashboard/projects/projects.component';
 import { CalendarComponent } from './dashboard/calendar/calendar.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { BriefsComponent } from './dashboard/briefs/briefs.component';
+import { SignupComponent } from './signup/signup.component';
+import { ChatComponent } from './dashboard/chat/chat/chat.component';
 // prime ng
 import { DropdownModule } from 'primeng/dropdown';
-import { ChatComponent } from './dashboard/chat/chat/chat.component';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { SignupComponent } from './signup/signup.component';
 import { CarouselModule } from 'primeng/carousel';
 import { MessagesModule } from 'primeng/messages';
+import {TableModule} from 'primeng/table';
 // services
 
 @NgModule({
@@ -46,7 +48,8 @@ import { MessagesModule } from 'primeng/messages';
     ProjectsComponent,
     CalendarComponent,
     UserInfoComponent,
-    SignupComponent
+    SignupComponent,
+    BriefsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { MessagesModule } from 'primeng/messages';
     SelectButtonModule,
     InputTextareaModule,
     CarouselModule,
-    MessagesModule
+    MessagesModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

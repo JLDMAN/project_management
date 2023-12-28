@@ -9,6 +9,7 @@ import { ChatComponent } from '../dashboard/chat/chat/chat.component';
 import { ProjectsComponent } from '../dashboard/projects/projects.component';
 import { CalendarComponent } from '../dashboard/calendar/calendar.component';
 import { SignupComponent } from '../signup/signup.component';
+import { BriefsComponent } from '../dashboard/briefs/briefs.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'chat', component: ChatComponent},
     {path: 'projects', component: ProjectsComponent},
-    {path: 'calendar', component: CalendarComponent}
+    {path: 'calendar', component: CalendarComponent},
+    {path: 'briefs', component: BriefsComponent}
   ]},
   {path: 'signup', component: SignupComponent}
 ];

@@ -3,7 +3,6 @@ const pool = require("../config/database");
 
 class User {
   static async findByUsername(userName) {
-
     const checkUsernameQuery = `
       SELECT * from users
       WHERE user_name = $1
@@ -42,6 +41,22 @@ class User {
       return rows[0];
     } catch (error) {
       console.error("Error adding user:", error);
+      throw error;
+    }
+  }
+
+  static async retrieveTeamList() {
+    const getUserList = `
+    SELECT user_name, user_id
+    FROM users
+    WHERE user_status = 'member'
+  `;
+
+    try {
+      const { rows: teamList } = await pool.query(getUserList);
+      return teamList;
+    } catch (error) {
+      console.error("Error getting team list:", error);
       throw error;
     }
   }

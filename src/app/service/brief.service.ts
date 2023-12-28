@@ -29,4 +29,8 @@ export class BriefService {
     const projectDetails = { userName, projectName, projectType, dueDate, departement, priority, description };
     return this.http.post(`${this.apiUrl}/createBrief`, projectDetails)
   }
+
+  getBriefs(){
+    return this.http.post(`${this.apiUrl}/getBriefs`, '');
+  }
 }

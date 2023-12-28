@@ -69,6 +69,29 @@ const userController = {
       console.error('Error logging user in:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
+  },
+
+  async getTeamMembers(req, res){
+    try{
+      const members = await User.retrieveTeamList();
+      console.log(members);
+
+      if (members) {
+        res.status(200).json({
+          message: 'Team members list found',
+          status: "success",
+          teamList: members
+        });
+      } else {
+        res.status(401).json({
+          error: 'Member list not found',
+          status: "false",
+        });
+      }
+    } catch (error) {
+      console.error('Error getting user list:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
   }
 };
 

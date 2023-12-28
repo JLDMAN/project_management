@@ -16,4 +16,10 @@ router.post('/navigation', userNavigation.loadUserPaths);
 // Route for brief creation
 router.post('/createBrief', briefController.createBrief);
 
+// Route for getting briefs
+router.post('/getBriefs', briefController.getBriefs);
+
+// Route to retrieve teamMembers
+router.post('/getTeamMembers', userController.getTeamMembers)
+
 module.exports = router;

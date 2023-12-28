@@ -17,7 +17,19 @@
                 <td>{{briefs.department}}</td>
                 <td>{{briefs.description}}</td>
                 <td>{{briefs.progress}}</td>
-                <td><p-button>Assign</p-button></td>
+                <td>
+                    <div class="card flex justify-content-center">
+                        <p-dropdown [options]="members" 
+                                    [(ngModel)]="selectedMember" 
+                                    optionLabel="name" 
+                                    [showClear]="true" 
+                                    placeholder="Select a User">
+                        </p-dropdown>
+                    </div>
+                    <div class="card flex justify-content-center">
+                        <p-button (onClick)="assignTeamMember(briefs.brief_id)">Assign</p-button>
+                    </div>
+                </td>
             </tr>
         </ng-template>
     </p-table>
