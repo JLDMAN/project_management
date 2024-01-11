@@ -1,36 +1,56 @@
-<div>
+<!-- <div>
     <p-table [value]="briefs" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Project name</th>
-                <th>Project Type</th>
-                <th>Departement</th>
-                <th>Description</th>
-                <th>Progress</th>
-                <th>Assign To Team Member</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-briefs>
-            <tr>
-                <td>{{briefs.project_name}}</td>
-                <td>{{briefs.project_type}}</td>
-                <td>{{briefs.department}}</td>
-                <td>{{briefs.description}}</td>
-                <td>{{briefs.progress}}</td>
-                <td>
-                    <div class="card flex justify-content-center">
-                        <p-dropdown [options]="members" 
-                                    [(ngModel)]="selectedMember" 
-                                    optionLabel="name" 
-                                    [showClear]="true" 
-                                    placeholder="Select a User">
-                        </p-dropdown>
-                    </div>
-                    <div class="card flex justify-content-center">
-                        <p-button (onClick)="assignTeamMember(briefs.brief_id)">Assign</p-button>
-                    </div>
-                </td>
-            </tr>
-        </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th *ngFor="let heading of tableHeadings">{{ heading }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-brief>
+        <tr>
+          <td *ngFor="let property of briefStructure">
+            {{ brief[property] }}
+          </td>
+          <td *ngIf="status === 'manager'">
+            <div class="card flex justify-content-center">
+              <p-dropdown [options]="[1, 2, 3]" 
+                          [(ngModel)]="selectedMember" 
+                          optionLabel="name" 
+                          [showClear]="true" 
+                          placeholder="Select a User">
+              </p-dropdown>
+            </div>
+            <div class="card flex justify-content-center">
+              <p-button (onClick)="assignTeamMember()">Assign</p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
     </p-table>
+  </div> -->
+
+<div>
+  <p-table [value]="briefs" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let heading of tableHeadings">{{ heading }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-brief>
+      <tr>
+        <td *ngFor="let structure of briefStructure">
+          {{ brief[structure.toLowerCase()] }}
+        </td>
+        <td *ngIf="status === 'manager'">
+          <div class="card flex justify-content-center">
+            <p-dropdown [options]="[1, 2, 3]" [(ngModel)]="selectedMember" optionLabel="name" [showClear]="true"
+              placeholder="Select a User">
+            </p-dropdown>
+          </div>
+          <div class="card flex justify-content-center">
+            <p-button (onClick)="assignTeamMember()">Assign</p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>

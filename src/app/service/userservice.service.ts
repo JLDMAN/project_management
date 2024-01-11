@@ -14,8 +14,8 @@ export class UserService {
   ){ 
   }
 
-  registerUser(userName: any, status: any, password: any, email: any): Observable<any>{
-    const userData = {userName, status, password, email};
+  registerUser(userName: any, status: any, password: any, email: any, department: any): Observable<any>{
+    const userData = {userName, status, password, email, department};
     return this.http.post(`${this.apiUrl}/register`, userData);
   }
 

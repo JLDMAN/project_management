@@ -20,7 +20,6 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.service.loadNavigation();
     const status = localStorage.getItem('userStatus');
     console.log("user status recieved afetr login: " + status);
 
@@ -41,16 +40,20 @@ export class NavigationComponent implements OnInit {
       case 'client':
         this.names = [
           { buttonName: 'Home', iconName: 'Home.png' },
+          { buttonName: 'Projects', iconName: 'Projects.png' },
+          { buttonName: 'Briefs', iconName: 'Docs.png'}
         ];
         break;
       case 'manager':
         this.names = [
           { buttonName: 'Chat', iconName: 'Chat.png' },
+          { buttonName: 'Briefs', iconName: 'Docs.png'}
         ];
         break;
       case 'member':
         this.names = [
-          { buttonName: 'Archive', iconName: 'Archive.png'}
+          { buttonName: 'Archive', iconName: 'Archive.png'},
+          { buttonName: 'Briefs', iconName: 'Docs.png'}
         ];
         break;
       default:

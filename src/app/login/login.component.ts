@@ -62,7 +62,8 @@ export class LoginComponent {
     }else{
       this.userService.loginUser(this.userName, password).subscribe( 
         (res: any) => {
-          localStorage.setItem('user', this.userName);
+          localStorage.setItem('userId', res.userId);
+          localStorage.setItem('userName', this.userName);
           localStorage.setItem('userStatus', res.userStatus);
           this.router.navigate(['dashboard']);          
         },(error) => {

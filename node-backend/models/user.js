@@ -23,11 +23,12 @@ class User {
     }
   }
 
-  static async addUser(userName, email, status, password) {
+  static async addUser(userName, email, status, password, department) {
+    console.log("departement recieved in model" + department);
     const addUserQuery = `
       INSERT INTO users (user_name, user_email, user_status, user_pwd)
       VALUES ($1, $2, $3, $4)
-      RETURNING *
+      RETURNING user_id, user_status
     `;
 
     try {
@@ -35,10 +36,31 @@ class User {
         userName,
         email,
         status,
-        password,
+        password
       ]);
 
-      return rows[0];
+      const insertedUserId = rows[0].user_id;
+      const userStatus = rows[0].user_status;
+
+      // Check if the user is a manager
+      if (userStatus === 'manager') {
+        const addManagerQuery = `
+          INSERT INTO managers (id, name, department)
+          VALUES ($1, $2, $3)
+          RETURNING *
+        `;
+
+        // Insert into managers table with the same user_id as in users table
+        const managerRows = await pool.query(addManagerQuery, [
+          insertedUserId,
+          userName,
+          department,
+        ]);
+
+        return { user: rows[0], manager: managerRows.rows[0] };
+      }
+
+      return { user: rows[0], manager: null };
     } catch (error) {
       console.error("Error adding user:", error);
       throw error;

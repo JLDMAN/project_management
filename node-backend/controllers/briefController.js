@@ -3,7 +3,7 @@ const Brief = require("../models/brief");
 const briefController = {
   async createBrief(req, res) {
     const {
-      userName,
+      user,
       projectName,
       projectType,
       dueDate,
@@ -13,7 +13,7 @@ const briefController = {
     } = req.body;
     try {
       const brief = await Brief.storeBrief(
-        userName,
+        user,
         projectName,
         projectType,
         dueDate,
@@ -36,14 +36,16 @@ const briefController = {
   },
 
   async getBriefs(req, res) {
+    const { userId, status } = req.body;
+    
     try {
-      const briefs = await Brief.returnBriefs();
+      const briefs = await Brief.returnBriefs(userId, status);
 
       if (briefs) {
         res.status(201).json({
           message: "Briefs returned successfully",
           status: "success",
-          briefs: briefs['rows']
+          briefs: briefs
         });
       }
     } catch (error) {

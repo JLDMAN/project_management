@@ -15,7 +15,7 @@ export class BriefService {
   }
 
   createBrief(
-    userName: any,
+    user: any,
     projectName: any,
     projectType: any,
     timeCount: any,
@@ -26,11 +26,12 @@ export class BriefService {
   ): Observable<any> {
     const dueDate =  timeCount+timeUnit;
 
-    const projectDetails = { userName, projectName, projectType, dueDate, departement, priority, description };
+    const projectDetails = { user, projectName, projectType, dueDate, departement, priority, description };
     return this.http.post(`${this.apiUrl}/createBrief`, projectDetails)
   }
 
-  getBriefs(){
-    return this.http.post(`${this.apiUrl}/getBriefs`, '');
+  getBriefs(userId: any, status: any): Observable<any> {
+    const userDetails = { userId, status};
+    return this.http.post(`${this.apiUrl}/getBriefs`, userDetails);
   }
 }

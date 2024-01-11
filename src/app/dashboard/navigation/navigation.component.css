@@ -4,7 +4,10 @@
 }
 
 .bottomContainer{
-    margin-top: 85%;
+    /* margin-top: 55%; */
+    position: absolute;
+    bottom: 2px;
+    margin-left: 2%;
 }
 
 .topContainer{

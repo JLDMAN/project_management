@@ -106,16 +106,38 @@
                     </div>
                     <div class="spaceLeft">
                         <p class="darkText smallText">Project Timeline</p>
-                        <p-dropdown formControlName="timeCount" [options]="timeCounter" optionLabel="count" optionValue="value"></p-dropdown>
-                        <p-dropdown formControlName="timeUnit" [options]="timeUnit" optionLabel="unit" optionValue="value"></p-dropdown>
+                        <p-dropdown 
+                            formControlName="timeCount" 
+                            [options]="timeCounter" 
+                            optionLabel="count" 
+                            optionValue="value">
+                        </p-dropdown>
+                        <p-dropdown 
+                            formControlName="timeUnit" 
+                            [options]="timeUnit" 
+                            optionLabel="unit" 
+                            optionValue="value">
+                        </p-dropdown>
                     </div>
                 </div>
                 <div class="sapceTop">
-                    <p-selectButton formControlName="departement" [options]="marketingOptions" optionLabel="name" optionValue="value"></p-selectButton> 
+                    <p class="darkText smallText">Departement</p>
+                    <p-selectButton 
+                        formControlName="departement" 
+                        [options]="marketingOptions" 
+                        optionLabel="name" 
+                        optionValue="value">
+                    </p-selectButton> 
                 </div>
                 <div class="sapceTop">
                     <p class="darkText smallText">Priority</p>
-                    <p-dropdown class="darkText smallText" formControlName="priority" [options]="priorityOptions" optionLabel="urgency" optionValue="value"></p-dropdown>
+                    <p-dropdown 
+                        class="darkText smallText" 
+                        formControlName="priority" 
+                        [options]="priorityOptions" 
+                        optionLabel="urgency" 
+                        optionValue="value">
+                    </p-dropdown>
                 </div>
                 <div>
                     <p class="darkText smallText">Project description</p>

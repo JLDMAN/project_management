@@ -34,7 +34,11 @@ export class ProjectsComponent implements OnInit {
 
   marketingOptions: any = [
     { name: "Brand marketing", value: "bm" },
-    { name: "Digital marketing", value: "dm" }
+    { name: "Digital marketing", value: "dm" },
+    { name: "UX/Ui", value: "ux" },
+    { name: "Events", value: "ev" },
+    { name: "Affiliates", value: "af" },
+
   ];
 
   projects: any = [
@@ -157,7 +161,15 @@ export class ProjectsComponent implements OnInit {
 
     // this.closeTracker();
     if (form){
-      this.briefed.createBrief(localStorage.getItem('user'),form.projectName, form.projectType, form.timeCount, form.timeUnit, form.departement, form.priority, form.description).subscribe(
+      this.briefed.createBrief(
+          localStorage.getItem('userId'),
+          form.projectName, 
+          form.projectType, 
+          form.timeCount, 
+          form.timeUnit, 
+          form.departement, 
+          form.priority, 
+          form.description).subscribe(
         (res: any) => {
           this.messages = [{ severity: 'success', summary: 'Success', detail: 'Brief has been created' }];
         }, (error: any) => {

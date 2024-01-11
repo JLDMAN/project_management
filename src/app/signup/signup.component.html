@@ -24,8 +24,23 @@
                             class="sizing"
                             [style]="{'width': '100%'}"
                             formControlName="status" 
-                            placeholder="User">
+                            placeholder="User"
+                            (onChange)="checkUser()">
                         </p-dropdown>
+                    </div>
+                    <div *ngIf="managerStatus">
+                        <div class="center smallSpaceMargin">
+                            <p-dropdown 
+                                [options]="department"
+                                optionLabel="option"
+                                optionValue="value"
+                                class="sizing"
+                                [style]="{'width': '100%'}"
+                                formControlName="department" 
+                                placeholder="Department"
+                                [ngModel]="department.value">
+                            </p-dropdown>
+                        </div>
                     </div>
                 </div>
                 <div class="center smallSpaceMargin">

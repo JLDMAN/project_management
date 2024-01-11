@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const userController = {
   async registerUser(req, res) {
-    const { userName, email, status, password } = req.body;
+    const { userName, email, status, password, department } = req.body;
 
     try {
       const existingUser = await User.findByUsername(userName);
@@ -18,7 +18,8 @@ const userController = {
           userName,
           email,
           status,
-          hashedPassword
+          hashedPassword,
+          department
         );
 
         res.status(201).json({
@@ -55,7 +56,8 @@ const userController = {
         res.status(200).json({
           message: 'User logged in successfully',
           status: "success",
-          userStatus: user.user_status
+          userStatus: user.user_status,
+          userId: user.user_id,
         });
       } else {
         console.log("Password does not match");

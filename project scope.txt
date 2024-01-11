@@ -1,0 +1,106 @@
+i am working on a project tracking software.
+
+users who signup are either 'managers', 'clients', 'members'
+the software should track who creates a project and the created projects' details.
+the software should assighn created projects to departement managers.
+managers should then be able to assign the project to team members under them.
+
+i want a user table that assigns id's to everybody who joins the system (clients, members and managers). this user id should be unique so it can be used to track any users activity across the system.
+
+this is the user table, it get populated when users sign up for the software:
+-- DROP TABLE public.users;
+CREATE TABLE IF NOT EXISTS public.users
+(
+    user_id integer NOT NULL DEFAULT nextval('users_user_id_seq'::regclass),
+    user_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    departement character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    user_email character varying(75) COLLATE pg_catalog."default" NOT NULL,
+    user_status character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    user_pwd character varying(75) COLLATE pg_catalog."default" NOT NULL,
+    create_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT users_pkey PRIMARY KEY (user_id),
+    CONSTRAINT users_user_email_key UNIQUE (user_email)
+)
+
+TABLESPACE pg_default;
+ALTER TABLE public.users
+OWNER to postgres;
+
+This is the managers table, it should get populated from the users table, if the user status is = 'manager'
+-- DROP TABLE public.managers;
+CREATE TABLE IF NOT EXISTS public.managers
+(
+    id integer NOT NULL DEFAULT nextval('managers_id_seq'::regclass),
+    name character varying(50) COLLATE pg_catalog."default",
+    department character varying(5) COLLATE pg_catalog."default",
+    CONSTRAINT managers_pkey PRIMARY KEY (id),
+    CONSTRAINT managers_department_key UNIQUE (department)
+)
+
+TABLESPACE pg_default;
+ALTER TABLE public.managers
+OWNER to postgres;
+
+how to get the id in managerrs table to be the same/ be related as in users table?
+this is current query which inserts user data into user table. but if the user is a manager i want the relevent data to be stored into manager table aswell. How to trigger?
+
+static async addUser(userName, department, email, status, password) {
+    const addUserQuery = `
+      INSERT INTO users (user_name, user_email, user_status, user_pwd)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING *
+    `;
+
+    try {
+      const { rows } = await pool.query(addUserQuery, [
+        userName,
+        email,
+        status,
+        password,
+      ]);
+
+      return rows[0];
+    } catch (error) {
+      console.error("Error adding user:", error);
+      throw error;
+    }
+  }
+
+this is the table that captures the details of the briefs/projects that are created by 'client' users on the system.
+- the user_id is returned from the user table by frontend capturing
+- the project id should now be unique to track the project as it gets assigned and changes status across the system
+-- DROP TABLE public.briefs;
+CREATE TABLE IF NOT EXISTS public.briefs
+(
+    user_id integer,
+    brief_id integer NOT NULL DEFAULT nextval('briefs_brief_id_seq'::regclass),
+    project_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    project_type character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    due_date character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    department character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    priority character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    description character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    progress character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT briefs_pkey PRIMARY KEY (brief_id)
+)
+
+TABLESPACE pg_default;
+ALTER TABLE public.briefs
+OWNER to postgres;
+
+this is the table that tracks when a project is assigned to a user, when the progress of a project changes a new entry should be made for that project so that the project progession can be tracked
+
+-- DROP TABLE public.briefs_allocation;
+CREATE TABLE IF NOT EXISTS public.briefs_allocation
+(
+    brief_id integer NOT NULL DEFAULT nextval('briefs_allocation_brief_id_seq'::regclass),
+    progress character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    progress_change_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    assigned_user integer,
+    CONSTRAINT briefs_allocation_pkey PRIMARY KEY (brief_id)
+)
+
+TABLESPACE pg_default;
+ALTER TABLE public.briefs_allocation
+OWNER to postgres;
+
